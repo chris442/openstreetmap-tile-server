@@ -72,6 +72,7 @@ RUN apt-get install -y --no-install-recommends \
   tar \
   ttf-unifont \
   unzip \
+  vim \
   wget \
   zlib1g-dev \
 && apt-get clean autoclean \
@@ -124,7 +125,8 @@ RUN mkdir -p /home/renderer/src \
 # Configure stylesheet
 RUN mkdir -p /home/renderer/src \
  && cd /home/renderer/src \
- && git clone --single-branch https://github.com/chris442/openstreetmap-carto.git --depth 1 \
+ && git clone https://github.com/chris442/openstreetmap-carto.git \
+ && git -C openstreetmap-carto checkout master \
  && cd openstreetmap-carto \
  && rm -rf .git \
  && npm install -g carto@0.18.2 \
@@ -146,7 +148,7 @@ RUN mkdir /var/lib/mod_tile \
  && echo "LoadModule headers_module /usr/lib/apache2/modules/mod_headers.so" >> /etc/apache2/conf-available/mod_headers.conf \
  && a2enconf mod_tile && a2enconf mod_headers
 COPY apache.conf /etc/apache2/sites-available/000-default.conf
-COPY leaflet-demo.html /var/www/html/index.html
+COPY dist /var/www/html
 RUN ln -sf /dev/stdout /var/log/apache2/access.log \
  && ln -sf /dev/stderr /var/log/apache2/error.log
 

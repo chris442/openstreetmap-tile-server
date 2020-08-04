@@ -1,0 +1,500 @@
+/*shorthand
+    animation: name duration timing-function; */
+/*
+    animation-delay: 2s;
+    animation-iteration-count: 3;
+    */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  /*code happens at 0%, browsers optimised to only use opacity and transorm in aniimations */
+  80% {
+    transform: translateX(2rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  /*code happens at 0%, browsers optimised to only use opacity and transorm in aniimations */
+  80% {
+    transform: translateX(-2rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(10rem); }
+  /*code happens at 0%, browsers optimised to only use opacity and transorm in aniimations */
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  /* prevent animation shakes */
+  backface-visibility: hidden;
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 1.5rem;
+    animation-name: moveInRight;
+    animation-duration: 3s;
+    animation-timing-function: ease-in; }
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /*font-size: 16px;*/
+  line-height: 1.7;
+  color: black;
+  padding: 3rem; }
+
+h3 {
+  font-size: 300%;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 2rem; }
+
+h4 {
+  font-size: 200%;
+  text-align: left; }
+
+.data-section__heading {
+  text-transform: uppercase;
+  font-size: 200%;
+  letter-spacing: 1.5rem;
+  opacity: 50%; }
+
+.data-display__tab-content--field-description {
+  font-size: 200%; }
+
+.btn {
+  display: block; }
+  .btn:link, .btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    /*timing of transforms*/
+    position: relative;
+    font-size: 1.6rem; }
+  .btn:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    /* x y blurryness colour*/ }
+    .btn:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; }
+  .btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    /* x y blurryness */ }
+  .btn--white {
+    background-color: #fff;
+    color: #777; }
+    .btn--white::after {
+      background-color: #fff; }
+  .btn::after {
+    content: "";
+    /*has to be specified or it won't appear */
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s; }
+  .btn--animated {
+    animation: moveInBottom 0.5s ease-out;
+    animation-fill-mode: backwards; }
+
+.button {
+  padding: 1rem;
+  font-size: 150%; }
+  .button-right {
+    margin-top: 1rem;
+    float: right; }
+  .button--small {
+    padding: 1rem;
+    font-size: 125%; }
+  .button--delete {
+    padding: 0rem;
+    font-size: 125%; }
+
+.data-display__button {
+  margin: auto;
+  font-size: 2rem;
+  display: block;
+  padding: 1.5rem;
+  min-width: 25rem;
+  background-color: #005b96;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  border: 2px solid #011f4b;
+  border-radius: 1rem; }
+  .data-display__button--right {
+    font-size: 1.5rem;
+    padding: 1rem;
+    background-color: #005b96;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border: 2px solid #011f4b;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    float: right; }
+    .data-display__button--right:hover {
+      transform: translateY(-0.3rem);
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+      /* x y blurryness colour*/ }
+      .data-display__button--right:hover::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0; }
+    .data-display__button--right:active {
+      transform: translateY(-1px);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+      /* x y blurryness */ }
+  .data-display__button--left {
+    font-size: 1.5rem;
+    padding: 1rem;
+    background-color: #005b96;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border: 2px solid #011f4b;
+    border-radius: 1rem;
+    margin: 1rem; }
+    .data-display__button--left:hover {
+      transform: translateY(-0.3rem);
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+      /* x y blurryness colour*/ }
+      .data-display__button--left:hover::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0; }
+    .data-display__button--left:active {
+      transform: translateY(-1px);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+      /* x y blurryness */ }
+  .data-display__button:not(:last-child) {
+    margin-bottom: 5rem; }
+  .data-display__button:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    /* x y blurryness colour*/ }
+    .data-display__button:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; }
+  .data-display__button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    /* x y blurryness */ }
+
+.route-analysis__button--remove {
+  padding: 0;
+  margin: 0;
+  height: 2rem;
+  width: 2rem; }
+
+.remove-waypoint-button {
+  background-image: url("./images/delete-icon.png");
+  width: 2rem;
+  height: 2rem;
+  background-size: 2rem 2rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  vertical-align: middle; }
+
+.data-display__tabs {
+  float: left;
+  width: 50px; }
+
+.data-display__tab-label {
+  display: block;
+  background-color: #436f85;
+  padding: 1rem 1rem;
+  width: 100%;
+  border: 1px solid black;
+  outline: none;
+  cursor: pointer;
+  border-radius: 10px 0px 0px 10px;
+  height: calc((90vh - 4 * 10px) / 5); }
+  .data-display__tab-label:not(:first-child) {
+    margin-top: 10px; }
+  .data-display__tab-label:hover {
+    background-color: #6497b1; }
+  .data-display__tab-label.active {
+    background-color: #b3cde0;
+    border-right: none; }
+
+.data-display__tab-content {
+  float: left;
+  padding: 0px 12px;
+  background-color: #b3cde0;
+  border: 1px solid black;
+  width: calc(100% - 50px);
+  border-left: none;
+  height: 90vh; }
+
+.data-display__tab-icon {
+  height: 30px;
+  width: 30px;
+  vertical-align: middle; }
+
+.data-display__waypoint-table {
+  background-color: #e6e6e6;
+  border: 1px solid black; }
+  .data-display__waypoint-table > th,
+  .data-display__waypoint-table td {
+    border: 1px solid black; }
+
+#loading-data {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000; }
+  #loading-data > p {
+    transform: translate(60%, 500%);
+    font-size: 5rem; }
+
+.blur-effect {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px); }
+
+#home-tab {
+  background-image: url("./images/home.png");
+  background-size: 3rem 3rem;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+#search-location-tab {
+  background-image: url("./images/search.png");
+  background-size: 3rem 3rem;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+#flood-areas-tab {
+  background-image: url("./images/flooded-home.png");
+  background-size: 3rem 3rem;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+#flood-warnings-tab {
+  background-image: url("./images/warning.png");
+  background-size: 3rem 3rem;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+#analyse-route-tab {
+  background-image: url("./images/route.png");
+  background-size: 3rem 3rem;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.back-icon {
+  background-image: url("./images/back.png");
+  background-size: 3rem 3rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  margin-top: 2rem;
+  height: 2rem;
+  width: 3rem;
+  margin-bottom: 2.5rem; }
+
+.info-section {
+  display: inline-block;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  background-color: #bee3db;
+  border: 1px dashed black;
+  border-radius: 0.5rem;
+  padding: 0.2rem; }
+  .info-section__heading {
+    font-size: 200%;
+    display: inline-block; }
+  .info-section__details {
+    font-size: 150%;
+    display: inline-block; }
+  .info-section__icon {
+    background-image: url("./images/info.png");
+    height: 3rem;
+    width: 3rem;
+    background-size: 3rem 3rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    margin-right: 1rem;
+    align-content: center; }
+
+.row {
+  max-width: 95%;
+  background-color: white;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    clear: both;
+    display: table; }
+  .row [class^="col-"] {
+    background-color: white;
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 1rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 1rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2 * 1rem) / 3); }
+  .row .col-2-of-3 {
+    width: calc(2 *  ((100% - 2 * 1rem) / 3) + 1rem); }
+  .row .col-1-of-4 {
+    width: calc((100% - 3 * 1rem) / 4); }
+  .row .col-2-of-4 {
+    width: calc(2 * ((100% - 3 * 1rem) / 4) + 1rem); }
+  .row .col-3-of-4 {
+    width: calc(3 * ((100% - 3 * 1rem) / 4) + 2 * 1rem); }
+
+.header {
+  height: 95vh;
+  /*95% of viewport height */
+  background-image: linear-gradient(rgba(255, 255, 255, 0.801), rgba(0, 0, 255, 0.795)), url(../images/town-flood.jpg);
+  background-size: cover;
+  position: relative;
+  /*Photo by Chris Gallagher on Unsplash*/ }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 100px;
+    /*width auto scales*/ }
+  .header__text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*centre in the middle of the page*/
+    text-align: center; }
+
+#mapid {
+  height: 90vh;
+  width: 100%; }
+
+#map-and-data-row {
+  height: 90vh; }
+
+.data-section {
+  margin-top: 2rem;
+  background-color: #e6e6e6;
+  border-radius: 0.5rem;
+  padding: 1rem; }
+
+.filter {
+  display: inline-block;
+  vertical-align: top; }
+  .filter:not(:last-child) {
+    margin-right: 5rem; }
+
+.data-display__tab-content {
+  overflow: auto;
+  position: relative; }
+  .data-display__tab-content--home {
+    display: block;
+    position: relative;
+    margin: auto;
+    max-width: 25rem; }
+  .data-display__tab-content--search-options {
+    display: block;
+    position: relative;
+    margin: auto;
+    max-width: 25rem; }
+  .data-display__tab-content--search-method {
+    display: block;
+    position: relative;
+    margin: auto;
+    max-width: 25rem; }
+  .data-display__tab-content--search-results {
+    display: block; }
+  .data-display__tab-content--route-analysis {
+    display: block;
+    position: relative; }
+
+.data-display__search-field {
+  padding: 1rem;
+  width: 25rem;
+  font-size: 150%; }
+
+.data-section__table--flood-data {
+  margin-top: 15px;
+  width: 100%;
+  border: 1px solid black; }
+  .data-section__table--flood-data tr :first-child {
+    font-weight: bold;
+    font-size: 125%; }
+  .data-section__table--flood-data td {
+    padding: 2px;
+    vertical-align: top;
+    border: 1px solid black; }
+
+#loading-warning {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+  height: 100px;
+  width: 100px;
+  z-index: 9999;
+  background-color: green; }
+
+.search-result {
+  display: block;
+  padding: 1rem;
+  width: 25rem;
+  font-size: 175%; }
+
+.data-display__waypoint-table {
+  text-align: center;
+  font-size: 125%; }
+  .data-display__waypoint-table--way-point-col {
+    width: 10%; }
+  .data-display__waypoint-table--lat-col {
+    width: 40%; }
+  .data-display__waypoint-table--lng-col {
+    width: 40%; }
+  .data-display__waypoint-table--remove-col {
+    width: 10%; }
+
+.leaflet-container.crosshair-cursor-enabled {
+  cursor: crosshair; }
